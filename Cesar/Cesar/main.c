@@ -6,7 +6,7 @@ void decode_cesar(char[], int);
 
 int main()
 {
-    char frase;
+    char *frase;
     int dec, pos=3,i,n=0;
 
     printf("Insira a frase:\n");
@@ -14,29 +14,43 @@ int main()
     scanf("%s", frase);
 
     printf("Insira 1 para codificar\n, 2 para decodificar\n, 3 para encerrar:\n");
-    scanf("%d", dec);
+    scanf("%d", &dec);
 
-    while (dec=!3)
+    switch (dec)
     {
-
-        switch (dec)
-        {
-        case (1):
-            for (i=0, frase[i]=! '\0', i++){
-                code_cesar(frase[n], pos);
-                n++;
-            }
-
-        case (2):
-            for (i=0, frase[i]=! '\0', i++){
-                decode_cesar(frase[n], pos);
-                n++;
-            }
-
-        case (3):
-            printf("%s", frase);
+    case (1):
+        for (i=0, frase[i]=! '\0', i++){
+            code_cesar(frase[n], pos);
+            n++;
         }
+        n=0;
+        break;
+    case (2):
+        for (i=0, frase[i]=! '\0', i++)
+        {
+            decode_cesar(frase[n], pos);
+            n++;
+        }
+        n=0;
+        break;
+    case (3):
+        printf("%s", frase);
+        break;
     }
 
+
+
     return 0;
+}
+
+void code_cesar(frase[x], int pos)
+{
+
+    frase[x] += 3;
+}
+
+void code_cesar(frase[x], int pos)
+{
+
+    frase[x] -= 3;
 }
